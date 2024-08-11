@@ -1,0 +1,99 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+  background: url("Background-Image-Signup-Page.jpg");
+  background-repeat: no-repeat;
+  background-size: 1700px 900px;
+}
+
+
+.signup{
+    margin-bottom: 10px;
+    color: blue;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#data{
+    text-align: center;
+    margin-top: 80px;
+    
+    
+}
+.cover{
+    background: whitesmoke;
+    height: 485px;
+    width: 400px;
+    background-size: auto;
+    border: 2px solid blanchedalmond;
+   margin-left: 800px;
+   border-radius: 5%;
+
+}
+.fields{
+    margin-bottom: 20px;
+    
+}
+.css-fields{
+
+        height: 35px;
+        width: 320px;
+        border: 3px solid black;
+        padding: 15px;
+        border-radius: 5px;
+     
+}
+/* #fname{
+   height: 35px;
+   width: 320px;
+   border: 3px solid black;
+   padding: 15px;
+   border-radius: 5px;
+}
+#lname{
+    height: 35px;
+    width: 320px;
+    border: 3px solid black;
+    padding: 15px;
+}
+#mail{
+   height: 35px;
+   width: 320px;
+   border: 3px solid black;
+   padding: 15px;
+}
+#password{
+    height: 35px;
+    width: 320px;
+    border: 3px solid black;
+    padding: 15px;
+}
+#cpassword{
+    height: 35px;
+    width: 320px;
+    border: 3px solid black;
+    padding: 15px;
+} */
+#textarea{
+    height: 70px;
+    width: 320px;
+    border: 3px solid black; 
+    padding: 5px;
+}
+#btn{
+    height: 50px;
+    width: 100px;
+    background: blueviolet;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.fields span{
+    color: red;
+    display: none;
+}
