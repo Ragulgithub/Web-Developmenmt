@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('./bg.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+        padding: 20px; /* Reduced padding */
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 15px; /* Reduced margin */
+    }
+
+    input[type="text"], 
+    input[type="password"], 
+    select, 
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 8px; /* Reduced padding */
+        margin-bottom: 8px; /* Reduced margin */
+        border-radius: 12px;
+        border: 2px solid black;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        color: white;
+        background-color: #007BFF;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 8px; /* Reduced padding */
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+        #warn, #warn2, #warnCountry, #warnGender, #warnComments {
+            color: red;
+            font-size: 12px;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+
+        #image {
+            height: 150px; /* Reduced image height */
+            width: 100%;
+            margin-top: 15px; /* Reduced margin */
+            margin-bottom: 15px; /* Reduced margin */
+            display: block;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+
+        .radio-btn {
+            margin-bottom: 15px; /* Reduced margin */
+            display: flex;
+            justify-content: space-around;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Signup</h1>
+        <div>
+            <input type="text" placeholder="Email address" id="email"/>
+            <div><span id="warn"></span></div>
+            <input type="password" placeholder="Password" id="password"/>
+            <div><span id="warn2"></span></div>
+        </div>
+        
+        <!-- Select section -->
+        <div>
+            <select id="country" onchange="getcountry()">
+                <option value="">Select country</option>
+                <option value="USA">USA</option>
+                <option value="UAE">UAE</option>
+                <option value="AUS">AUS</option>
+                <option value="IND">IND</option>
+            </select>
+            <div><span id="warnCountry"></span></div>
+        </div>
+
+        <!-- Image section -->
+        <div>
+            <img src="404-error.webp" alt="404page" id="image">
+        </div>
+
+        <!-- Radio section -->
+        <div class="radio-btn">
+            <label>Male</label><input type="radio" value="male" name="gender">
+            <label>Female</label><input type="radio" value="female" name="gender">
+            <label>Others</label><input type="radio" value="others" name="gender">
+            <div><span id="warnGender"></span></div>
+        </div>
+
+        <!-- Textarea section -->
+        <div>
+            <textarea id="text" placeholder="Comments"></textarea>
+            <div><span id="warnComments"></span></div>
+        </div>
+
+        <!-- Button section -->
+        <div>
+            <input type="button" value="Submit" onclick="employee()" class="btn"/>
+        </div>
+    </div>
+
+    <!-- Script section -->
+    <script>
+        function employee() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var country = document.getElementById('country').value;
+            var text = document.getElementById('text').value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+    
+            var isValid = true;
+    
+            // Email validation
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email == "") {
+                document.getElementById('email').style.border = '2px solid red';
+                document.getElementById('warn').innerText = "Enter Your Email";
+                isValid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('email').style.border = '2px solid red';
+                document.getElementById('warn').innerText = "Enter a Valid Email";
+                isValid = false;
+            } else {
+                document.getElementById('email').style.border = '2px solid green';
+                document.getElementById('warn').innerText = "";
+            }
+    
+            // Password validation
+            var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            if (password == "") {
+                document.getElementById('password').style.border = '2px solid red';
+                document.getElementById('warn2').innerText = "Enter Your Password";
+                isValid = false;
+            } else if (!passwordPattern.test(password)) {
+                document.getElementById('password').style.border = '2px solid red';
+                document.getElementById('warn2').innerText = "Password must be at least 8 characters long and contain both letters and numbers";
+                isValid = false;
+            } else {
+                document.getElementById('password').style.border = '2px solid green';
+                document.getElementById('warn2').innerText = "";
+            }
+    
+            // Country validation
+            if (country == "") {
+                document.getElementById('country').style.border = '2px solid red';
+                document.getElementById('warnCountry').innerText = "Select Your Country";
+                isValid = false;
+            } else {
+                document.getElementById('country').style.border = '2px solid green';
+                document.getElementById('warnCountry').innerText = "";
+            }
+    
+            // Gender validation
+            if (!gender) {
+                document.getElementById('warnGender').innerText = "Select Your Gender";
+                isValid = false;
+            } else {
+                document.getElementById('warnGender').innerText = "";
+            }
+    
+            // Comments validation
+            if (text == "") {
+                document.getElementById('text').style.border = '2px solid red';
+                document.getElementById('warnComments').innerText = "Enter Your Comments";
+                isValid = false;
+            } else {
+                document.getElementById('text').style.border = '2px solid green';
+                document.getElementById('warnComments').innerText = "";
+            }
+    
+            if (isValid) {
+                console.log('Email:', email);
+                console.log('Password:', password);
+                console.log('Country:', country);
+                console.log('Gender:', gender.value);
+                console.log('Comments:', text);
+                alert("Validation successful!");
+            } else {
+                alert("Validation failed! Please check the highlighted fields.");
+            }
+        }
+    
+        function getcountry() {
+            var country = document.getElementById('country').value;
+            var imagePath;
+    
+            switch (country) {
+                case "USA":
+                    imagePath = 'Flag-USA.webp';
+                    break;
+                case "UAE":
+                    imagePath = 'UAE.jpg';
+                    break;
+                case "AUS":
+                    imagePath = 'Flag-Australia.webp';
+                    break;
+                case "IND":
+                    imagePath = 'Flag-India.webp';
+                    break;
+                default:
+                    imagePath = '404-error.webp';
+            }
+    
+            document.getElementById('image').src = imagePath;
+        }
+    </script>
+    
+</body>
+</html>
