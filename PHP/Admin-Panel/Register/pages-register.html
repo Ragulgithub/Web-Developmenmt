@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Pages / Register</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <style>
+    #name-error2 {
+      display: none;
+      color: red;
+    }
+    #name-error{
+      display: none;
+      color: red;
+    }
+    #mail-error{
+      display: none;
+      color: red;
+    }
+    #mail-error2{
+      display: none;
+      color: red;
+    }
+    #password-error{
+      display: none;
+      color: red;
+    }
+    #password-error2{
+      display: none;
+      color: red;
+    }
+    #username-error{
+      display: none;
+      color: red;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+              <div class="d-flex justify-content-center py-4">
+                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                  <img src="assets/img/logo.png" alt="">
+                  <span class="d-none d-lg-block">NiceAdmin</span>
+                </a>
+              </div><!-- End Logo -->
+
+              <div class="card mb-3">
+
+                <div class="card-body">
+
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                    <p class="text-center small">Enter your personal details to create account</p>
+                  </div>
+
+                  <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Your Name</label>
+                      <input type="text" name="name" class="form-control" id="yourName" onblur="firstname()">
+                      <span id="name-error">*Name must contain atleast 3 characters</span>
+                      <span id="name-error2" >*please your name</span>
+                      
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourEmail" class="form-label">Your Email</label>
+                      <input type="email" name="email" class="form-control" id="yourEmail" onblur="mail()">
+                      <span id="mail-error">*Please enter valid mail</span>
+                      <span id="mail-error2">*Please enter Email</span>
+                     
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourUsername" class="form-label">Username</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <input type="text" name="username" class="form-control w-75" id="yourUsername" onblur="uname()">
+                        <span id="username-error">*please choose a username</span>
+                       
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="yourPassword" onblur="pass()">
+                      <span id="password-error">*Please enter strong password</span>
+                      <span id="password-error2">*Please enter password</span>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                        
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+
+              <div class="credits">
+                Designed by <a href="https://www.linkedin.com/in/mragul/">Ragul</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <!-- SweetAlert CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <!-- Register -->
+
+  <script>
+    // name validation
+    function firstname() {
+      var firstname = document.getElementById('yourName').value.trim();
+      if (firstname === "") {
+        document.getElementById('yourName').style.border = "3px solid red";
+        document.getElementById('name-error2').style.display = "block";
+        document.getElementById('name-error').style.display = "none";
+      } else {
+        if (firstname.length >= 3) {
+          document.getElementById('yourName').style.border = "3px solid green";
+          document.getElementById('name-error').style.display = "none";
+          document.getElementById('name-error2').style.display = "none";
+        } else {
+          document.getElementById('yourName').style.border = "3px solid red";
+          document.getElementById('name-error').style.display = "block";
+          document.getElementById('name-error2').style.display = "none";
+        }
+      }
+    }
+  
+    // email validation
+    function mail() {
+      var mail = document.getElementById('yourEmail').value.trim();
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (mail === "") {
+        document.getElementById('yourEmail').style.border = "3px solid red";
+        document.getElementById('mail-error2').style.display = "block";
+        document.getElementById('mail-error').style.display = "none";
+      } else {
+        if (mailformat.test(mail)) {
+          document.getElementById('yourEmail').style.border = "3px solid green";
+          document.getElementById('mail-error').style.display = "none";
+          document.getElementById('mail-error2').style.display = "none";
+        } else {
+          document.getElementById('yourEmail').style.border = "3px solid red";
+          document.getElementById('mail-error').style.display = "block";
+          document.getElementById('mail-error2').style.display = "none";
+        }
+      }
+    }
+  
+    // password validation
+    function pass() {
+      var password = document.getElementById('yourPassword').value.trim();
+      var passwordformat = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+      if (password === "") {
+        document.getElementById('yourPassword').style.border = "3px solid red";
+        document.getElementById('password-error2').style.display = "block";
+        document.getElementById('password-error').style.display = "none";
+      } else {
+        if (passwordformat.test(password)) {
+          document.getElementById('yourPassword').style.border = "3px solid green";
+          document.getElementById('password-error2').style.display = "none";
+          document.getElementById('password-error').style.display = "none";
+        } else {
+          document.getElementById('yourPassword').style.border = "3px solid red";
+          document.getElementById('password-error').style.display = "block";
+          document.getElementById('password-error2').style.display = "none";
+        }
+      }
+    }
+  
+    // username validation
+    function uname() {
+      var uname = document.getElementById('yourUsername').value.trim();
+      if (uname === "") {
+        document.getElementById('yourUsername').style.border = "3px solid red";
+        document.getElementById('username-error').style.display = "block";
+      } else {
+        document.getElementById('yourUsername').style.border = "3px solid green";
+        document.getElementById('username-error').style.display = "none";
+      }
+    }
+  
+
+  // Form submission handling
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Perform validations
+    firstname();
+    mail();
+    uname();
+    pass();
+
+    // Check if all validations passed
+    if (document.getElementById('name-error').style.display === "none" &&
+        document.getElementById('name-error2').style.display === "none" &&
+        document.getElementById('mail-error').style.display === "none" &&
+        document.getElementById('mail-error2').style.display === "none" &&
+        document.getElementById('password-error').style.display === "none" &&
+        document.getElementById('password-error2').style.display === "none" &&
+        document.getElementById('username-error').style.display === "none" &&
+        document.getElementById('acceptTerms').checked) {
+      // Show SweetAlert success message and redirect
+      Swal.fire({
+        title: 'Success!',
+        text: 'Your account has been created successfully.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Redirect to the login page
+          window.location.href = 'pages-login.html';
+        }
+      });
+    } else {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Please correct the errors in the form.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
+  });
+</script>
+  
+
+</body>
+
+</html>
