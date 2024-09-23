@@ -1,0 +1,111 @@
+
+/* form  edit page*/ 
+.form-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.form-container h1 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.form-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.form-container input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container input[type='text']:focus {
+  border-color: #0066cc;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+  background-color: #f0f8ff;
+}
+
+.form-container input[type='button']  {
+  width: 100%;
+  padding: 10px;
+  background-color: #0066cc;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn2
+  {
+    width: 100%;
+    padding: 10px;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.form-container input[type='button']:hover {
+  background-color: #004999;
+  transform: scale(1.02);
+}
+
+.form-container input[type='button']:active {
+  background-color: #003366;
+}
+
+.form-container span {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  color: red;
+}
+
+.form-container input[type='text']::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.form-container input[type='text']:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.form-container div {
+  margin-bottom: 20px;
+}
